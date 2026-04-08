@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import SiteFrame from "@/components/SiteFrame";
 import Skills from "@/components/Skills";
 import { getSkills } from "@/lib/queries";
