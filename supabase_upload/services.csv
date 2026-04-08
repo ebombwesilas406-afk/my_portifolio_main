@@ -1,0 +1,9 @@
+title,description,icon
+Portfolio Website,Modern responsive portfolio with About Projects Skills Contact sections.,layout
+Business Landing Page,High converting landing page for a product or service with clear CTA.,rocket
+UI Design (Figma),UI screens and components designed in Figma with a simple design system.,figma
+Graphic Design,Posters thumbnails and social media creatives with consistent branding.,palette
+Website Redesign,Refresh an existing site with improved layout typography and responsiveness.,refresh-cw
+Supabase Setup,Create tables basic RLS policies and connect Supabase to a Next.js app.,database
+Bug Fixes,Fix UI bugs and improve performance and usability.,wrench
+Maintenance,Small content updates and minor layout adjustments.,settings

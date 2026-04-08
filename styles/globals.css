@@ -1,0 +1,498 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-light: #fdfcf0;
+  --bg-dark: #0f172a;
+  --accent-light: #14b8a6;
+  --accent-dark: #22d3ee;
+  --heading-font: "Cormorant Garamond", serif;
+  --ui-font: "Space Mono", monospace;
+  --bg: var(--bg-light);
+  --text: #172029;
+  --muted: #44515f;
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-border: rgba(20, 184, 166, 0.2);
+  --accent: var(--accent-light);
+  --input-line: rgba(20, 184, 166, 0.35);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: var(--bg-dark);
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --surface: rgba(15, 23, 42, 0.64);
+  --surface-border: rgba(34, 211, 238, 0.28);
+  --accent: var(--accent-dark);
+  --input-line: rgba(34, 211, 238, 0.45);
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  @apply antialiased transition-colors duration-300 ease-in-out;
+}
+
+a,
+button,
+input,
+textarea,
+section,
+article,
+div {
+  @apply transition-colors duration-300 ease-in-out;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-6xl px-6 py-20 md:px-10;
+}
+
+.section-title {
+  font-family: var(--heading-font);
+  @apply text-3xl font-semibold tracking-tight md:text-5xl;
+}
+
+.muted-label {
+  font-family: var(--ui-font);
+  color: var(--accent);
+  @apply text-[11px] uppercase tracking-[0.26em];
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  @apply rounded-3xl p-6 backdrop-blur-md shadow-lg transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl;
+}
+
+.bento-grid {
+  @apply grid gap-6 md:grid-cols-6;
+}
+
+.bento-tile {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  @apply rounded-3xl p-6 backdrop-blur-md shadow-lg transition duration-300 ease-in-out hover:shadow-xl hover:[transform:perspective(1000px)_rotateX(1deg)_rotateY(-1deg)_translateY(-4px)];
+}
+
+.surface-glass {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  @apply backdrop-blur-md;
+}
+
+.cta-primary {
+  background: var(--accent);
+  @apply inline-flex items-center rounded-full px-6 py-3 text-sm text-slate-950 shadow-lg transition duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl active:scale-[0.99];
+}
+
+.cta-secondary {
+  border: 1px solid var(--surface-border);
+  color: var(--accent);
+  @apply inline-flex items-center rounded-full px-6 py-3 text-sm transition duration-300 ease-in-out hover:scale-[1.03] hover:bg-white/40 dark:hover:bg-slate-900/30;
+}
+
+.cta-outline-teal {
+  border: 1px solid color-mix(in oklab, var(--accent) 55%, var(--surface-border));
+  color: var(--accent);
+  @apply inline-flex items-center rounded-full px-6 py-3 text-sm transition duration-300 ease-in-out;
+}
+
+.cta-outline-teal:hover {
+  background: color-mix(in oklab, var(--accent) 14%, transparent);
+  box-shadow: 0 10px 30px color-mix(in oklab, var(--accent) 22%, transparent);
+}
+
+.hero-blueprint {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-blueprint::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(color-mix(in oklab, var(--accent) 18%, transparent) 1px, transparent 1px),
+    linear-gradient(to right, color-mix(in oklab, var(--accent) 10%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--accent) 10%, transparent) 1px, transparent 1px);
+  background-size: 18px 18px, 72px 72px, 72px 72px;
+  background-position: 0 0, 0 0, 0 0;
+  opacity: 0.18;
+  pointer-events: none;
+  mask-image: radial-gradient(60% 55% at 35% 25%, black, transparent 70%);
+}
+
+.hero-blueprint::after {
+  content: "";
+  position: absolute;
+  inset: -80px;
+  background:
+    radial-gradient(600px circle at 30% 18%, color-mix(in oklab, var(--accent) 18%, transparent), transparent 60%),
+    radial-gradient(700px circle at 78% 38%, color-mix(in oklab, #67e8f9 14%, transparent), transparent 62%);
+  filter: blur(18px);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.hero-gradient-text {
+  background: linear-gradient(90deg, var(--accent), color-mix(in oklab, #67e8f9 78%, white));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.code-pill {
+  border: 1px solid color-mix(in oklab, var(--surface-border) 90%, transparent);
+  background: color-mix(in oklab, var(--surface) 65%, transparent);
+  @apply inline-flex items-center gap-2 rounded-full px-4 py-2 font-ui text-[12px] uppercase tracking-[0.22em] text-[var(--muted)] backdrop-blur-md;
+}
+
+.ide-float {
+  border: 1px solid color-mix(in oklab, var(--accent) 35%, var(--surface-border));
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--accent) 18%, transparent),
+    0 18px 55px color-mix(in oklab, var(--accent) 18%, transparent);
+  animation: ide-glow 3.6s ease-in-out infinite;
+}
+
+.dock-pill {
+  border: 1px solid color-mix(in oklab, var(--surface-border) 85%, transparent);
+  background: color-mix(in oklab, var(--surface) 65%, transparent);
+  @apply inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs tracking-[0.14em] text-[var(--muted)] backdrop-blur-md transition duration-300 ease-in-out;
+}
+
+.dock-pill:hover {
+  transform: translateY(-3px);
+  backdrop-filter: blur(22px);
+  color: var(--accent);
+  border-color: color-mix(in oklab, var(--accent) 35%, var(--surface-border));
+}
+
+@keyframes ide-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--accent) 14%, transparent),
+      0 18px 55px color-mix(in oklab, var(--accent) 16%, transparent);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--accent) 26%, transparent),
+      0 18px 55px color-mix(in oklab, var(--accent) 28%, transparent);
+  }
+}
+
+.reveal-up {
+  animation: reveal-up 550ms ease both;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 650ms ease, transform 650ms ease;
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-console-title {
+  font-family: var(--heading-font);
+  letter-spacing: clamp(-0.01em, -0.02em + 0.3vw, 0.06em);
+}
+
+.console-grid {
+  position: relative;
+  isolation: isolate;
+}
+
+.console-grid::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  background:
+    radial-gradient(600px circle at 20% 20%, color-mix(in oklab, var(--accent) 18%, transparent), transparent 55%),
+    radial-gradient(700px circle at 85% 35%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 60%),
+    radial-gradient(500px circle at 40% 90%, color-mix(in oklab, var(--accent) 10%, transparent), transparent 60%);
+  filter: blur(12px);
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.console-tile {
+  background: color-mix(in oklab, var(--surface) 90%, transparent);
+  border: 1px solid color-mix(in oklab, var(--surface-border) 80%, transparent);
+  @apply rounded-2xl backdrop-blur-md shadow-lg;
+}
+
+.console-tile:hover {
+  border-color: color-mix(in oklab, var(--accent) 35%, var(--surface-border));
+}
+
+.profile-scan {
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-scan::after {
+  content: "";
+  position: absolute;
+  inset: -40% -12%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    color-mix(in oklab, var(--accent) 26%, transparent) 40%,
+    rgba(255, 255, 255, 0.06) 50%,
+    color-mix(in oklab, var(--accent) 22%, transparent) 60%,
+    transparent 100%
+  );
+  transform: translateX(-120%) rotate(6deg);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.profile-scan:hover::after {
+  opacity: 1;
+  animation: scan-sweep 980ms ease-in-out both;
+}
+
+.terminal-shell {
+  background: color-mix(in oklab, var(--surface) 86%, transparent);
+  border: 1px solid color-mix(in oklab, var(--surface-border) 80%, transparent);
+  @apply overflow-hidden rounded-2xl backdrop-blur-md shadow-lg;
+}
+
+.terminal-topbar {
+  @apply flex items-center justify-between gap-3 px-4 py-3;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in oklab, var(--surface) 92%, transparent),
+    color-mix(in oklab, var(--surface) 80%, transparent)
+  );
+  border-bottom: 1px solid color-mix(in oklab, var(--surface-border) 70%, transparent);
+}
+
+.terminal-dot {
+  @apply h-2.5 w-2.5 rounded-full;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.terminal-body {
+  @apply px-5 py-5;
+  background:
+    radial-gradient(900px circle at 20% 0%, rgba(255, 255, 255, 0.06), transparent 60%),
+    radial-gradient(700px circle at 90% 20%, rgba(255, 255, 255, 0.04), transparent 60%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.02), transparent 45%);
+}
+
+.terminal-typed {
+  display: inline-block;
+  position: relative;
+}
+
+.terminal-typed::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 0.95em;
+  margin-left: 6px;
+  background: color-mix(in oklab, var(--accent) 80%, transparent);
+  transform: translateY(2px);
+  animation: caret-blink 1s step-end infinite;
+  opacity: 0.85;
+}
+
+.page-shell {
+  animation: page-fade 320ms ease;
+}
+
+.status-pulse {
+  position: relative;
+}
+
+.status-pulse::before {
+  content: "";
+  @apply mr-2 inline-block h-2.5 w-2.5 rounded-full;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 70%, transparent);
+  animation: pulse-dot 1.8s infinite;
+}
+
+.field-line {
+  border: 0;
+  border-bottom: 1px solid var(--input-line);
+  background: transparent;
+  color: var(--text);
+  @apply w-full px-0 pb-2 pt-5 text-sm outline-none;
+}
+
+.floating-label {
+  color: var(--muted);
+  @apply pointer-events-none absolute left-0 top-4 text-xs tracking-[0.14em] transition-all duration-300 ease-in-out;
+}
+
+.field-group input:focus + .floating-label,
+.field-group input:not(:placeholder-shown) + .floating-label,
+.field-group textarea:focus + .floating-label,
+.field-group textarea:not(:placeholder-shown) + .floating-label {
+  color: var(--accent);
+  @apply top-0 text-[10px];
+}
+
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 45%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 9px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scan-sweep {
+  0% {
+    transform: translateX(-120%) rotate(6deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120%) rotate(6deg);
+    opacity: 0;
+  }
+}
+
+@keyframes caret-blink {
+  0%,
+  45% {
+    opacity: 0;
+  }
+  46%,
+  100% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+@keyframes block-shimmer {
+  0% {
+    filter: brightness(1);
+    transform: translateY(0);
+  }
+  50% {
+    filter: brightness(1.25);
+    transform: translateY(-1px);
+  }
+  100% {
+    filter: brightness(1);
+    transform: translateY(0);
+  }
+}
+
+.network-lines {
+  position: absolute;
+  inset: -20px;
+  pointer-events: none;
+  opacity: 0.22;
+  filter: blur(0.2px);
+  mask-image: radial-gradient(70% 55% at 50% 40%, black, transparent 75%);
+}
+
+.network-lines path {
+  stroke: color-mix(in oklab, var(--accent) 45%, transparent);
+  stroke-width: 1.2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 7 12;
+  animation: dash-flow 6.5s linear infinite;
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -240;
+  }
+}
+
+.skills-circuit {
+  position: relative;
+  isolation: isolate;
+}
+
+.skills-circuit::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  background:
+    radial-gradient(700px circle at 35% 20%, color-mix(in oklab, var(--accent) 16%, transparent), transparent 62%),
+    radial-gradient(800px circle at 80% 35%, color-mix(in oklab, #67e8f9 12%, transparent), transparent 65%);
+  filter: blur(14px);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.skills-circuit::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--accent) 9%, transparent) 0px,
+      transparent 1px,
+      transparent 24px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      color-mix(in oklab, var(--accent) 7%, transparent) 0px,
+      transparent 1px,
+      transparent 24px
+    ),
+    radial-gradient(color-mix(in oklab, var(--accent) 10%, transparent) 1px, transparent 1px);
+  background-size: auto, auto, 18px 18px;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: -1;
+  mix-blend-mode: overlay;
+  mask-image: radial-gradient(70% 60% at 45% 40%, black, transparent 72%);
+}
+
+@keyframes page-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="S favicon">
+  <path
+    d="M24 7H12
+       C9.6 7 8 8.6 8 11
+       C8 13.4 9.6 15 12 15H20
+       C22.4 15 24 16.6 24 19
+       C24 21.4 22.4 23 20 23H8"
+    fill="none"
+    stroke="#14B8A6"
+    stroke-width="4.2"
+    stroke-linecap="square"
+    stroke-linejoin="miter"
+  />
+</svg>
+

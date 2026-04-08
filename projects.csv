@@ -1,0 +1,7 @@
+title,description,tech_stack,image_url,github_url,live_url
+Spider+ (Web Scraping System),"A structured scraping pipeline for collecting and cleaning web data.","Python, BeautifulSoup, SQL",,,
+Jarvis (AI Assistant Prototype),"An assistant prototype focused on task support and natural interactions.","Python, APIs, Automation",,,
+EduCore SMS (School Management System),"Student records, communication, and operations in one management platform.","Django, PostgreSQL",,,
+SwiftShop (E-commerce Platform),"A practical e-commerce experience with catalog, cart, and order flow.","JavaScript, REST APIs, SQL",,,
+Personal Portfolio Website,"A clean personal portfolio to showcase projects, skills, and services.","Next.js, Tailwind CSS, Supabase",,,
+Mini Project (Optional),"A flexible sandbox for experimenting with new ideas and learning goals.","Varies by iteration",,,

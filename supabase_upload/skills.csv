@@ -1,0 +1,18 @@
+name,category,level
+JavaScript,language,4
+TypeScript,language,4
+HTML5,language,4
+CSS3,language,4
+React,tool,5
+Next.js,tool,4
+Tailwind CSS,tool,4
+Figma,tool,3
+Git & GitHub,tool,4
+Supabase,tool,3
+PostgreSQL,tool,3
+Node.js,tool,3
+REST APIs,concept,3
+UI/UX Design,concept,3
+Graphic Design,concept,3
+Responsive Design,concept,4
+Accessibility (a11y),concept,3
