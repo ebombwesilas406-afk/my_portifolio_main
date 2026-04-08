@@ -1,50 +1,31 @@
+// Import necessary components and modules
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { skillsData } from './path/to/database'; // Path to your database module
 
 const Skills = () => {
-  const [skills, setSkills] = useState({});
-
-  useEffect(() => {
-    // Fetch skills from the database
-    const fetchSkills = async () => {
-      try {
-        const response = await fetch('API_ENDPOINT_FOR_SKILLS'); // Replace with your actual API endpoint
-        const data = await response.json();
-        groupSkillsByCategory(data);
-      } catch (error) {
-        console.error('Error fetching skills:', error);
-      }
-    };
-
-    const groupSkillsByCategory = (data) => {
-      const grouped = {};
-      data.forEach((skill) => {
-        const category = skill.category;
-        if (!grouped[category]) {
-          grouped[category] = [];
+    // Group skills by their category
+    const groupedSkills = skillsData.reduce((acc, skill) => {
+        if (!acc[skill.category]) {
+            acc[skill.category] = [];
         }
-        grouped[category].push(skill);
-      });
-      setSkills(grouped);
-    };
+        acc[skill.category].push(skill);
+        return acc;
+    }, {});
 
-    fetchSkills();
-  }, []);
-
-  return (
-    <div>
-      {Object.keys(skills).map((category) => (
-        <div key={category}>
-          <h2>{category}</h2>
-          <div>
-            {skills[category].map((skill) => (
-              <div key={skill.id}>{skill.name}</div>
+    return (
+        <div className='skills-container'>
+            {Object.entries(groupedSkills).map(([category, skills]) => (
+                <div key={category} className='skills-category'>
+                    <h3>{category}</h3>
+                    <ul>
+                        {skills.map(skill => (
+                            <li key={skill.id} className='skill-item'>{skill.name}</li>
+                        ))}
+                    </ul>
+                </div>
             ))}
-          </div>
         </div>
-      ))}
-    </div>
-  );
+    );
 };
 
 export default Skills;
