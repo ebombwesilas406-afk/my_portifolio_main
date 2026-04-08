@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import type { Route } from "next";
 import { BriefcaseBusiness, FolderKanban, Home, Menu, UserRound, Wrench, X } from "lucide-react";
-import Logo from "@/components/Logo";
 
 const links = [
   { href: "/" as Route, label: "Home", icon: Home },
@@ -21,7 +20,13 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-[70]">
       <nav className="relative z-[70] mx-auto mt-4 flex w-[min(96%,1100px)] items-center justify-between rounded-2xl px-4 py-3 surface-glass bg-[var(--bg)]/95 md:bg-[var(--surface)]">
-        <Logo />
+        <Link
+          href="/"
+          aria-label="Home"
+          className="group inline-flex items-center rounded-md outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]"
+        >
+          <img src="/assests/logo.png" alt="Logo" className="h-9" />
+        </Link>
         <div className="hidden items-center gap-4 md:flex">
           {links.map((link) => (
             <Link
