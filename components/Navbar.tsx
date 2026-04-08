@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import type { Route } from "next";
 import { BriefcaseBusiness, FolderKanban, Home, Menu, UserRound, Wrench, X } from "lucide-react";
 
@@ -25,7 +26,7 @@ export default function Navbar() {
           aria-label="Home"
           className="group inline-flex items-center rounded-md outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]"
         >
-          <img src="/assests/logo.png" alt="Logo" className="h-9" />
+          <Image src="/assests/logo.png" alt="Logo" width={36} height={36} className="h-9 w-auto" />
         </Link>
         <div className="hidden items-center gap-4 md:flex">
           {links.map((link) => (
