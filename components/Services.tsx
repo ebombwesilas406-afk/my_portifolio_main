@@ -157,11 +157,6 @@ export default function Services({ services }: ServicesProps) {
             Modular offerings designed for clean delivery, technical depth, and real-world constraints.
           </p>
         </div>
-        <div className="console-tile w-fit px-4 py-3">
-          <p className="font-ui text-[10px] uppercase tracking-[0.22em] text-[var(--muted)]">
-            hover to inspect modules
-          </p>
-        </div>
       </div>
 
       {isEmpty ? (
